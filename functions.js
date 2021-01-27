@@ -36,6 +36,29 @@ const filter = function (collection, test) {
   return result;
 };
 
+const reject = function (collection, test) {
+//   let result = [];
+//   each(collection, (num) => {
+//     if(!test(num)) {
+//       result.push(num)
+//     }
+//   })
+// return result;
+  return filter(collection, (val) => {
+    return !test(val);
+  })
+};
+
+// filter(collection, (val) => {
+//   return !test(val)
+// })
+// newArray = []
+// each(collection, iterator)
+// iterator = function(collection[i]) {
+//   return !test(collection[i])
+// }
+// !test(collection[i]) = isEven(collection[i]) or isOdd(collection[i])
+
 const map = function (collection, iterator) {
   let result = [];
   each(collection, (num) => {
@@ -44,33 +67,49 @@ const map = function (collection, iterator) {
   return result;
 };
 
-const reject = function (collection, test) {
-  let result = [];
-  each(collection, (num) => {
-    if(!test(num)) {
-      result.push(num)
-    }
-  })
-return result;
-};
+// const uniq = function (array) {
+//   let result = [];
+//   each(array, (num) => {
+//     if(!result.includes(num)) {
+//       result.push((num))
+//     }
+//   })
+// return result;
+// };
 
-const uniq = function (array) {
+const uniq = function(array) {
   let result = [];
   each(array, (num) => {
-    if(!result.includes(num)) {
-      result.push((num))
+    if(indexOf(result, num) === -1) {
+      result.push(num);
     }
   })
-return result;
+  return result;
+}
+
+// uniq([1,2,2,3]) 
+// let result = [];
+// each([1,2,2,3], (2) => 
+//   if(![1, 2].includes(2)) 
+
+const reduce = function (collection, iterator, accumulator) {
+  let total = 0;
+  each(collection, (num) => {
+    num;  
+  })
+  
+
+  
+  return total;
 };
 
-// const reduce = function (collection, iterator, accumulator) {
-//   if(accumulator === undefined) {
-//     each(collection, (element) => {
-//       return iterator(element)
-//     })
-//   }
-// };
+let collection = [1, 2, 3]
+var add = function (tally, item) {
+  return tally + item;
+};
+
+a = reduce(collection, add)
+a;
 
 module.exports = {
   filter,
